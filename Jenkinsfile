@@ -4,7 +4,7 @@ pipeline {
   environment {
     NAME = "solar-system"
     VERSION = "${env.BUILD_ID}-${env.GIT_COMMIT}"
-    IMAGE_REPO = "siddharth67"
+    IMAGE_REPO = "mdhack"
     ARGOCD_TOKEN = credentials('argocd-token')
     GITEA_TOKEN = credentials('gitea-token')
   }
@@ -54,7 +54,7 @@ pipeline {
     stage('Update Manifest') {
       steps {
         dir("gitops-argocd/jenkins-demo") {
-          sh 'sed -i "m#mdhack0316.*#${IMAGE_REPO}/${NAME}:${VERSION}#g" deployment.yaml'
+          sh 'sed -i "m#mdhack.*#${IMAGE_REPO}/${NAME}:${VERSION}#g" deployment.yaml'
           sh 'cat deployment.yaml'
         }
       }
@@ -63,12 +63,12 @@ pipeline {
     stage('Commit & Push') {
       steps {
         dir("gitops-argocd/jenkins-demo") {
-          sh "git config --global user.email 'jenkins@ci.com'"
-          sh 'git remote set-url origin http://$GITEA_TOKEN@139.59.21.103:3000/siddharth/gitops-argocd'
-          sh 'git checkout feature-gitea'
+          sh "git config --global user.email 'mayank123modi@gmail.com'"
+          sh 'git remote set-url origin http://$GITEA_TOKEN@https://github.com/mdhack0316/gitops-argocd'
+          sh 'git checkout main'
           sh 'git add -A'
           sh 'git commit -am "Updated image version for Build - $VERSION"'
-          sh 'git push origin feature-gitea'
+          sh 'git push origin main'
         }
       }
     }
