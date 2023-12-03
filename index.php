@@ -23,7 +23,7 @@ echo '<!DOCTYPE html>
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			background: url("http://139.59.21.103:3000/siddharth/solar-system/raw/branch/main/images/background.png");
+			background: url("https://github.com/mdhack0316/solar-system-9/blob/main/images/background.png");
 		}
 		
 /* 		.shadow {
