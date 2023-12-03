@@ -1,18 +1,18 @@
 echo "Opening a Pull Request"
 
 curl -X 'POST' \
-  'http://139.59.21.103:3000/api/v1/repos/siddharth/gitops-argocd/pulls' \
+  'https://github.com/mdhack0316/gitops-argocd/pulls' \
   -H 'accept: application/json' \
   -H "authorization: $ARGOCD_TOKEN" \
   -H 'Content-Type: application/json' \
   -d '{
-  "assignee": "siddharth",
+  "assignee": "mayank",
   "assignees": [
-    "siddharth"
+    "mayank"
   ],
   "base": "main",
   "body": "Updated deployment specification with a new image version.",
-  "head": "feature-gitea",
+  "head": "main",
   "title": "Updated Solar System Image"
 }'
 
