@@ -5,7 +5,7 @@ pipeline {
     NAME = "solar-system"
     VERSION = "${env.BUILD_ID}-${env.GIT_COMMIT}"
     IMAGE_REPO = "mdhack"
-    GITEA_TOKEN = credentials('gitea-token')
+    GITEA_TOKEN = credentials('gitea_token')
   }
   
   stages {
