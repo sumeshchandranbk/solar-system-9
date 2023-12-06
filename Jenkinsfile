@@ -42,7 +42,7 @@ pipeline {
 
           } else {
             echo 'Repo does not exists - Cloning the repo'
-            sh 'git clone -b main https://github.com/mdhack0316/gitops-argocd'
+            sh 'git clone -b main https://github.com/sumeshchandranbk/gitops-argocd'
           }
         }
       }
@@ -60,8 +60,8 @@ pipeline {
     stage('Commit & Push') {
       steps {
         dir("gitops-argocd/jenkins-demo") {
-          sh "git config --global user.email 'mayank123modi@gmail.com'"
-          sh 'git remote set-url origin https://$GITEA_TOKEN@github.com/mdhack0316/gitops-argocd'
+          sh "git config --global user.email 'sumeshchandranbk@gmail.com'"
+          sh 'git remote set-url origin https://$GITEA_TOKEN@github.com/sumeshchandranbk/gitops-argocd'
           sh 'git checkout main'
           sh 'git add -A'
           sh 'git commit -am "Updated image version for Build - $VERSION"'
